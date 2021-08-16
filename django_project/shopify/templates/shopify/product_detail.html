@@ -1,0 +1,42 @@
+{% extends 'shopify/main.html' %}
+{% load static %}
+{% block content %}
+<head>
+<link rel="stylesheet" href="{% static 'css/product_desc.css' %}">
+</head>
+        <div id="content-wrapper">
+        <div class="column">
+            <img src="{{object.imageURL}}" id="featured">
+        </div>
+        <div class="column">
+            <h1>{{object.name}}</h1>
+            <hr>
+            <h3>${{object.price}}</h3>
+            <p>{{object.description}}</p>
+            <input  min=1 id = "select" type="number" oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : null">
+            <button class="btn btn-dark" id="add-button" value="{{object.id}}">Add to cart</button>
+        </div>
+    </div>
+
+<script>
+    $(document).on('click','#add-button',function (e){
+        e.preventDefault();
+        console.log($('#select').val())
+        $.ajax({
+            type: 'POST',
+            url:'{% url "basket_add" %}',
+            data:{
+                productid:$("#add-button").val(),
+                productdty:$('#select').val(),
+                csrfmiddlewaretoken: "{{ csrf_token }}",
+                action:"post",
+            },
+            success : function(json){
+                document.getElementById("cart-total").innerHTML = json.qty
+            },
+            error: function(xhr,errmsg,err){}
+        });
+    })
+    
+</script>
+{% endblock content %}

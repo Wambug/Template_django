@@ -1,0 +1,17 @@
+{% extends 'shopify/main.html' %}
+{% load static %}
+{% block content %}
+     <section class="s1">
+        <div class="main-container">
+          <div class="product-wrapper">
+          {% for product in products %}
+                <div class="post">
+                    <a href="{% url 'product_detail' product.id %}" style="text-decoration: none;"><img src="{{product.imageURL}}" id="thumbnail"></a>
+                    <a href="{% url 'product_detail' product.id %}" style="text-decoration: none;"><p style="align-items: center;">{{product.name}}</p></a>
+                    <a href="{% url 'product_detail' product.id %}" style="text-decoration: none;"><p >${{product.price|floatformat:2}}</p></a>
+                </div>
+          {% endfor %}
+          </div>
+        </div>
+      </section>
+{% endblock content %}

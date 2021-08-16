@@ -1,0 +1,134 @@
+:root{
+    --mainColor:white;
+    --mainText:rgb(75, 72, 72);
+}
+
+a{
+    text-decoration: none;
+    color: rgb(66, 230, 175);
+}
+h1,h2,h3,h4,h5,h6,strong{
+    color: black;
+}
+p,li,span,label,input,textarea{
+    color: var(--mainText);
+}
+ul{
+    list-style: none;
+}
+
+
+
+.s1{
+    border-bottom: 0.5px solid gray;
+}
+.s2{
+    background-color: darkgrey;
+    position: fixed;
+    
+}
+.main-container{
+    width: 1200px;
+    margin:0 auto;
+    
+    
+}
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 500;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+    padding-top: 60px;
+  }
+#cart{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+#header-image{
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    padding-top: 10px;
+
+}
+#cart-total{
+    display: block;
+	text-align: center;
+	width: 20px;
+	height: 25px;
+    background-color: var(--mainColor);
+	border-radius: 50%;
+	font-size: 14px;
+}
+.post-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 20px;
+    
+}
+.thumbnail{
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    cursor: pointer;
+    
+}
+.thumbnail:hover{
+    opacity: 1;
+}
+.post-wrapper.a{
+    cursor: pointer;
+}
+
+.contact-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+}
+.product-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
+}
+#thumbnail{
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    cursor: pointer;
+}
+@media screen  and (max-width: 600px){
+    .main-container{
+        width: 78%;
+    }
+    
+}
+@media screen  and (max-width: 800px){
+    .post-wrapper{
+        grid-template-columns: 1fr;
+        justify-content: center;
+
+        
+    }
+    .product-wrapper{
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+    .contact-wrapper{
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+}
+
+
+  
